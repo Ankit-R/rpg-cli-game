@@ -13,3 +13,7 @@ npm install play-rpg-cli-game
 ```
 npx play-rpg-cli-game
 ```
+
+
+
+NPM Package Link - https://www.npmjs.com/package/play-rpg-cli-game
