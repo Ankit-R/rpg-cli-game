@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const inquirer = require("inquirer");
+const dragonGame = require("./dragon-game-story.json");
+const treasureGame = require("./demo-game-story.json");
 
 const GAME_OPTIONS = {
   type: "list",
@@ -28,8 +30,6 @@ const playScene = (scenes, stage) => {
     const nextScene = scene.choices.find(
       (choice) => choice.option == answers["selectedScene"]
     ).nextScene;
-    // console.log(JSON.stringify(answers));
-
     playScene(scenes, nextScene);
   });
 };
@@ -37,13 +37,7 @@ const playScene = (scenes, stage) => {
 const startGame = (scenes) => playScene(scenes, "start");
 
 prompt(GAME_OPTIONS).then((answers) => {
-  const fileName =
-    answers["selectedGame"] === "Treasure Hunt"
-      ? "demo-game-story.json"
-      : "dragon-game-story.json";
-
-  fs.readFile(fileName, "utf8", (err, data) => {
-    if (err) throw err;
-    startGame(JSON.parse(data)["scenes"]);
-  });
+  const gameData =
+    answers["selectedGame"] === "Treasure Hunt" ? treasureGame : dragonGame;
+  startGame(gameData["scenes"]);
 });
