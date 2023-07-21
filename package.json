@@ -1,0 +1,20 @@
+{
+  "name": "play-rpg-cli-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "bin": {
+    "play": "index.js"
+  },
+  "keywords": [
+    "cli-game"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "8.2.4"
+  }
+}
